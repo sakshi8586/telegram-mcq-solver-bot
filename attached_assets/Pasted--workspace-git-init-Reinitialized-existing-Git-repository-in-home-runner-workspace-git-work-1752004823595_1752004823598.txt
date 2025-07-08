@@ -1,0 +1,37 @@
+~/workspace$ git init
+Reinitialized existing Git repository in /home/runner/workspace/.git/
+~/workspace$ ^C
+~/workspace$ git remote -v
+~/workspace$ git add .
+~/workspace$ git commit -m "🎉 Initial commit: Telegram MCQ Solver Bot"
+~/workspace$ git commit -m "🎉 Initial commit: Telegram MCQ Solver Bot"
+[main ddfe912] 🎉 Initial commit: Telegram MCQ Solver Bot
+ 4 files changed, 1055 insertions(+), 1 deletion(-)
+~/workspace$ git branch -M main
+~/workspace$ git push -u origin main
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+~/workspace$ ^C
+~/workspace$ git remote remove origin
+error: No such remote: 'origin'
+~/workspace$ git remote add origin https://github.com/sakshi8586/telegram-mcq-solver-bot.git
+~/workspace$ git push -u origin main
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/sakshi8586/telegram-mcq-solver-bot.git/'
+~/workspace$ git push -u origin main
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/sakshi8586/telegram-mcq-solver-bot.git/'
+~/workspace$ git push -u origin main
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/sakshi8586/telegram-mcq-solver-bot.git/'
+~/workspace$ git push -u origin main
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/sakshi8586/telegram-mcq-solver-bot.git/'
+~/workspace$
