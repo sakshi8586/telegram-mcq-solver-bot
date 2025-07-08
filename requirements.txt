@@ -1,0 +1,6 @@
+pyTelegramBotAPI
+pytesseract
+Pillow
+g4f
+requests
+python-dotenv

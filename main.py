@@ -1,12 +1,19 @@
+import os
 import telebot
 import pytesseract
 import requests
 from PIL import Image
 from io import BytesIO
 import g4f
+from dotenv import load_dotenv
 
-# 🔐 Bot Token — paste your real Telegram bot token below
-bot = telebot.TeleBot("8016232431:AAF8a81EtZAI1ta-KwSIW1NpJWWJBApQDks")
+# ✅ Load .env and get the bot token
+load_dotenv()
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+
+# 🛡️ Secure Token usage
+bot = telebot.TeleBot(BOT_TOKEN)
+
 AUTHORIZED_USER = '@ro_sakshi'  # Change this if needed
 
 print("✅ FREE GPT Bot is live. Waiting for MCQ images...")
@@ -39,7 +46,7 @@ def handle_image(message):
 
         # ✅ Free GPT response (g4f)
         response = g4f.ChatCompletion.create(
-            model=g4f.models.default,  # safest model
+            model=g4f.models.default,
             messages=[{"role": "user", "content": prompt}]
         )
 
