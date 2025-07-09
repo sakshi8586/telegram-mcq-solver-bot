@@ -2,7 +2,7 @@
 
 A smart Telegram bot that reads MCQ questions from images (like DSA, CS Fundamentals, etc.) and solves them using GPT — all with a single click.
 
-👉 **Try it now:** [MCQ_PRO_BOT on Telegram](https://t.me/MCQ_SOLVER_PRO_BOT)
+👉 **Try it now:** [PRO_MCQ_BOT on Telegram](https://t.me/PRO_MCQ_BOT)
 
 ---
 
@@ -34,5 +34,16 @@ A smart Telegram bot that reads MCQ questions from images (like DSA, CS Fundamen
 
 ## 🖼️ How It Works
 
-1. User sends **any message** or **MCQ image**
-2. Bot replies:
+1. User sends **any message** or **MCQ image**  
+2. Bot replies:  
+   - 👋 “Welcome to Sakshi's MCQ_PRO_BOT”  
+   - 📸 “Please send me the image of your MCQ question”  
+3. Bot extracts text from image using OCR  
+4. Sends it to GPT and replies with correct option (A/B/C/D) ✅
+
+---
+
+## 🧑‍💻 Author
+
+Made with ❤️ by [@ro_sakshi](https://github.com/sakshi8586)
+
