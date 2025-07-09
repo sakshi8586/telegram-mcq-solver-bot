@@ -6,27 +6,34 @@ from PIL import Image
 from io import BytesIO
 import g4f
 from dotenv import load_dotenv
+from datetime import datetime
 
-# ✅ Load .env and get the bot token
+# 🔐 Load environment variables
 load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-
-# 🛡️ Secure Token usage
 bot = telebot.TeleBot(BOT_TOKEN)
 
-AUTHORIZED_USER = '@ro_sakshi'  # Change this if needed
+# 📊 Log user activity
+def log_user_action(username, action):
+    with open("user_logs.txt", "a") as log_file:
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        log_file.write(f"[{timestamp}] @{username} - {action}\n")
 
-print("✅ FREE GPT Bot is live. Waiting for MCQ images...")
+print("✅ Public MCQ Solver Bot is live.")
 
+# ✅ Welcome message for any kind of text (including /start)
+@bot.message_handler(func=lambda m: True, content_types=['text'])
+def handle_text(message):
+    log_user_action(message.from_user.username, f"Text: {message.text}")
+    bot.reply_to(message, "📸 Send me your MCQ question image.")
+
+# 📷 Handle MCQ image
 @bot.message_handler(content_types=['photo'])
 def handle_image(message):
+    log_user_action(message.from_user.username, "Sent photo")
     print(f"📥 Image from @{message.from_user.username}")
 
-    if message.from_user.username != AUTHORIZED_USER[1:]:
-        bot.reply_to(message, "🚫 Unauthorized user.")
-        return
-
-    bot.reply_to(message, "🧠 Processing MCQ (free mode)...")
+    bot.reply_to(message, "🧠 Solving your MCQ...")
 
     try:
         file_info = bot.get_file(message.photo[-1].file_id)
@@ -44,7 +51,6 @@ def handle_image(message):
             "Give only the correct option (A/B/C/D) without explanation."
         )
 
-        # ✅ Free GPT response (g4f)
         response = g4f.ChatCompletion.create(
             model=g4f.models.default,
             messages=[{"role": "user", "content": prompt}]
@@ -57,4 +63,5 @@ def handle_image(message):
         print("❌ Error:", e)
         bot.reply_to(message, f"❌ Failed: {e}")
 
+# 🔁 Start polling
 bot.polling()
